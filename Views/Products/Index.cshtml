@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CoreProjectRemasterd.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.ProductImage)" width="90px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

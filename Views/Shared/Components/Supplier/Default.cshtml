@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Supplier>
+
+<ul class="aa-agents-slider">
+
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="aa-single-agents">
+                <div class="aa-agents-img">
+                    <img src="@Url.Content(item.SupplierImage)" alt="agent member image">
+                </div>
+                <div class="aa-agetns-info">
+                    <h4><a href="#">@item.Name</a></h4>
+                    <span>Top Agent</span>
+                    <div class="aa-agent-social">
+                        <a href="@item.FbUrl"><i class="fa fa-facebook"></i></a>
+                        <a href="@item.TwUrl"><i class="fa fa-twitter"></i></a>
+                        <a href="@item.LinkedInUrl"><i class="fa fa-linkedin"></i></a>
+                        <a href="@item.EmailUrl"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+
+
+</ul>
